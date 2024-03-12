@@ -12,30 +12,45 @@ public class Board {
     }
 
     public Boolean isInFavorOfX() {
-        for (int i = 0; i < matrix.length; i++ ) {
-            if (matrix[i][0] == matrix[i][1] && matrix[i][1] == matrix[i][2] && (matrix[i][0] == 'X')) {
-                return true;
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                if ((matrix[i][0] == 'X') && matrix[i][0] == matrix[i][1] && matrix[i][1] == matrix[i][2]) {
+                    return true;
+                } else if ((matrix[0][j] == 'X') && matrix[0][j] == matrix[1][j] && matrix[1][j] == matrix[2][j]) {
+                    return true;
+                } else if (matrix[i][matrix.length-1-i] == 'X') {
+                    return true;
+                } else if (matrix[matrix.length-1-j][j] == 'X') {
+                    return true;
+                }
             }
         }
-        for (int j = 0; j < matrix.length; j++) {
-            if (matrix[0][j] == matrix[1][j] && matrix[1][j] == matrix[2][j] && (matrix[0][j] == 'X')) {
-                return true;
+            return false;
+    }
+
+    public Boolean isInFavorOfO() {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                if (matrix[i][0] == 'O' && matrix[i][0] == matrix[i][1] && matrix[i][1] == matrix[i][2]) {
+                    return true;
+                } else if ((matrix[0][j] == 'O') && matrix[0][j] == matrix[1][j] && matrix[1][j] == matrix[2][j]) {
+                    return true;
+                } else if (matrix[i][matrix.length-1-i] == 'O') {
+                    return true;
+                } else if (matrix[matrix.length-1-j][j] == 'O') {
+                    return true;
+                }
             }
         }
-            return null;
-}
+            return false;
+    }
 
-        public Boolean isInFavorOfO () {
-            return null;
-        }
+    public Boolean isTie() {
+        return null;
+    }
 
-        public Boolean isTie () {
-            return null;
-        }
+    public String getWinner() {
+        return null;
+    }
 
-        public String getWinner () {
-            return null;
-        }
-
-}
-
+    }
